@@ -1,26 +1,54 @@
-import PropTypes from "prop-types";
+import { useState } from "react";
 
 const List = (props) => {
-    const category = props.category;
-    const itemsList = props.items;
+    const planetsList = props.planets;
+    const sportsList = props.sports;
+
+    const [showPlanets, setShowPlanets] = useState(false);
+    const [showSports, setShowSports] = useState(false);
+
+    const planetsButtonClick = () => {
+        setShowPlanets(!showPlanets);
+    }
+
+    const sportsButtonClick = () => {
+        setShowSports(!showSports);
+    }
+
+
+
+
+    const listOfPlanets = planetsList.map((planet) => {
+       return (
+        <li>{planet.name} - <span>Temperature: </span> {planet.temperature}</li>
+        )
+    })
+
+    const listOfSports = sportsList.map((sport) => {
+        return (
+            <li>{sport.name} - <span>Origin Country - </span> <span className="font-extrabold">{sport.origin}</span></li>
+        )
+    })
+
     
-    
-    const listThings = itemsList.map(item => <li key={item.id}>{item.name}: <b>{item.calories}</b></li>)
 
     return (
         <div className="text-center list-decimal">
-            <p className="text-3xl font-extrabold">{category}</p>
-            <ul >
-                {listThings} 
-            </ul>
+            <h1 className="text-3xl font-extrabold">What are you intrested in?</h1>
+            <div className="my-3">
+                <button onClick={planetsButtonClick} className="border rounded-md py-2 px-5 bg-blue-500 text-amber-50 cursor-pointer hover:scale-110 active:scale-90 transition-transform duration-150" >Planets</button>
+                <span className="mx-5"> or </span>
+                <button onClick={sportsButtonClick} className="border rounded-md py-2 px-5 bg-orange-700 text-amber-50 cursor-pointer hover:scale-110 active:scale-90 transition-transform duration-150">Sports</button>
+            </div>
+            
+            <div>
+                
+                    {showPlanets ? <ul>{listOfPlanets}</ul> : showSports && <ul>{listOfSports}</ul>}
+                    
+            </div>
         </div>
     )
 }
 
-List.propTypes = {
-    category: PropTypes.string,
-    itemsList: PropTypes.array,
-    calories: PropTypes.number,
-}
 
 export default List
