@@ -9,12 +9,17 @@ const List = (props) => {
 
     const planetsButtonClick = () => {
         setShowPlanets(!showPlanets);
+        setShowSports(false)
     }
 
     const sportsButtonClick = () => {
         setShowSports(!showSports);
+        setShowPlanets(false);
     }
-
+//True False
+//False True
+//True True
+//False False     
 
 
 
@@ -43,7 +48,7 @@ const List = (props) => {
             
             <div>
                 
-                    {showPlanets ? <ul>{listOfPlanets}</ul> : showSports && <ul>{listOfSports}</ul>}
+                    {showPlanets ? <ul>{listOfPlanets}</ul> : showSports && <ul>{listOfSports}</ul>} 
                     
             </div>
         </div>
