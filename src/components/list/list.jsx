@@ -51,6 +51,7 @@ const List = (props) => {
                     {showPlanets ? <ul>{listOfPlanets}</ul> : showSports && <ul>{listOfSports}</ul>} 
                     
             </div>
+            <hr className="border-0 border-b-4 border-b-blue-400 mt-5" />
         </div>
     )
 }

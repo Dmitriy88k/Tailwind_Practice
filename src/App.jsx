@@ -1,8 +1,10 @@
 import Header from "../src/components/header/header";
 import Footer from "../src/components/footer/footer";
-import Food from "../src/components/food/food";
 import Card from "../src/components/card/card";
 import List from "../src/components/list/list";
+import Button from "../src/components/Button/Button"
+import ColorPicker from "../src/components/ColorPicker/ColorPicker"
+
 
 import "./index.css";
 
@@ -29,7 +31,6 @@ function App() {
   return (
     <div>
       <Header />
-      <Food isVegetarian={true} name="Oliver" />
       <div className="lg:flex justify-between gap-5 w-11/12 mx-auto">
         <Card
           header="Sapporo Beer"
@@ -51,6 +52,9 @@ Asahi Super Dry Beer is a rice lager from Japan. These beers are prepared with r
       </div>
 
       <List planets={planets} sports={sports}/>
+
+      <Button/>
+      <ColorPicker/>
       
 
       <Footer />
